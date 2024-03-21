@@ -56,7 +56,7 @@ const HowItWorks = () => {
             </div>
             <div className="hiw-video">
               <video
-                className="pointer-events-none"
+                className="pointer-events-none rounded-2xl"
                 playsInline
                 preload="none"
                 muted
