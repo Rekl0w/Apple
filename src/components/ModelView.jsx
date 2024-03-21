@@ -1,13 +1,15 @@
 import {
-  Loader,
+  Html,
   OrbitControls,
   PerspectiveCamera,
   View,
 } from "@react-three/drei";
-import Lights from "./Lights";
-import { Suspense } from "react";
-import IPhone from "./IPhone";
+
 import * as THREE from "three";
+import Lights from "./Lights";
+import Loader from "./Loader";
+import IPhone from "./IPhone";
+import { Suspense } from "react";
 
 const ModelView = ({
   index,
@@ -24,7 +26,9 @@ const ModelView = ({
       id={gsapType}
       className={`w-full h-full absolute ${index === 2 ? "right-[-100%]" : ""}`}
     >
+      {/* Ambient Light */}
       <ambientLight intensity={0.3} />
+
       <PerspectiveCamera makeDefault position={[0, 0, 4]} />
 
       <Lights />
@@ -41,7 +45,7 @@ const ModelView = ({
 
       <group
         ref={groupRef}
-        name={`${index === 1} ? 'small' : 'large'`}
+        name={`${index === 1} ? 'small' : 'large`}
         position={[0, 0, 0]}
       >
         <Suspense fallback={<Loader />}>
